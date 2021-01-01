@@ -10,9 +10,10 @@
 </template>
 
 <script>
+
+
 export default {
   name: "TwootItem",
-
   props: {
     username: {
       type: String,

@@ -1,12 +1,13 @@
 <template>
   <div class="user-profile">
     <div class="user-profile__user-panel">
-      <h1 class="user-profile__username">@{{ user.username }}</h1>
-
-      <div class="user-profile__admin-badge" v-if="user.isAdmin">Admin</div>
+      <h1 class="user-profile__username">@{{ state.user.username }}</h1>
+      <div class="user-profile__admin-badge" v-if="state.user.isAdmin">
+        Admin
+      </div>
 
       <div class="user-profile__follower-count">
-        <strong>Followers: </strong> {{ followers }}
+        <strong>Followers: </strong> {{ state.followers }}
       </div>
 
       <CreateTwootPanel @add-twoot="addTwoot" />
@@ -14,9 +15,9 @@
 
     <div class="user-profile__twoots-wrapper">
       <TwootItem
-        v-for="twoot in user.twoots"
+        v-for="twoot in state.user.twoots"
         :key="twoot.id"
-        :username="user.username"
+        :username="state.user.username"
         :twoot="twoot"
       />
     </div>
@@ -24,8 +25,11 @@
 </template>
 
 <script>
-import TwootItem from "./TwootItem";
-import CreateTwootPanel from "./CreateTwootPanel";
+import { reactive, computed } from "vue";
+import { useRoute } from "vue-router";
+import { users } from '../assets/users'
+import TwootItem from "../components/TwootItem";
+import CreateTwootPanel from "../components/CreateTwootPanel";
 
 export default {
   name: "UserProfile",
@@ -35,33 +39,28 @@ export default {
     TwootItem,
   },
 
-  data() {
-    return {
+  setup() {
+    const route = useRoute();
+    const userId = computed(() => route.params.userId);
+
+    const state = reactive({
       followers: 0,
 
-      user: {
-        id: 1,
-        username: "Namir",
-        firstName: "Albert",
-        lastName: "Nasibullin",
-        email: "nalbert2012@ya.ru",
-        isAdmin: false,
+      user: users[userId.value - 1]  || users[0],
+    });
 
-        twoots: [
-          { id: 1, content: "Twooter is amazing!" } ,
-          { id: 2, content: "Don't forget to subscribe to Earth is Square!" },
-        ],
-      },
-    };
-  },
-
-  methods: {
-    addTwoot(twoot) {
-      this.user.twoots.unshift({
-        id: this.user.twoots.lenght + 1,
+    function addTwoot(twoot) {
+      state.user.twoots.unshift({
+        id: state.user.twoots.lenght + 1,
         content: twoot,
       });
-    },
+    }
+
+    return {
+      state,
+      addTwoot,
+      userId,
+    };
   },
 };
 </script>
@@ -84,15 +83,10 @@ export default {
     border-radius: 5px;
     border: 1px solid #dfe3e8;
     margin-bottom: auto;
-    /* */ 
+    /* */
     // margin-right: 50px;
     h1 {
       margin: 0;
-    }
-
-    .user-profile__username {
-      /*  */
-      // margin-bottom: 5px;
     }
 
     .user-profile__admin-badge {
@@ -102,9 +96,10 @@ export default {
       margin-right: auto;
       padding: 0 10px;
       font-weight: bold;
-      
+
       /*  */
-      // margin-bottom: 5px;
+      margin-top: 5px;
+      margin-bottom: 5px;
     }
   }
 
