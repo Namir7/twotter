@@ -5,6 +5,7 @@ export const users = [
     firstName: "Albert",
     lastName: "Nasibullin",
     email: "nalbert2012@ya.ru",
+    followers: 5,
     isAdmin: true,
     twoots: [
       { id: 1, content: "Twotter is Amazing!" },
@@ -17,8 +18,9 @@ export const users = [
     firstName: "Lara",
     lastName: "Croft",
     email: null,
+    followers: 7,
     isAdmin: false,
-    twoots: [],
+    twoots: [{ id: 1, content: "Twotter is Amazing!" }],
   },
   {
     id: 3,
@@ -26,8 +28,9 @@ export const users = [
     firstName: "Nickle",
     lastName: "Back",
     email: null,
+    followers: 10,
     isAdmin: false,
-    twoots: [],
+    twoots: [{ id: 1, content: "intial twoot!" }],
   },
   {
     id: 4,
@@ -35,7 +38,8 @@ export const users = [
     firstName: "Frog",
     lastName: "ICe",
     email: null,
+    followers: 3,
     isAdmin: false,
-    twoots: [],
+    twoots: [{ id: 1, content: "qwA!" }],
   },
 ];

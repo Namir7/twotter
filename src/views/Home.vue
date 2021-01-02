@@ -4,7 +4,7 @@
     <div class="users-list">
       <router-link
         v-for="user in users"
-        :to="{ name: 'UserProfile', params: { userId: user.userId } }"
+        :to="{ name: 'UserProfile', params: { userId: user.id } }"
         :key="user.id"
       >
         {{ user.username }}
@@ -33,7 +33,7 @@ export default {
   padding: 50px 5%;
 }
 
-.users-list{
+.users-list {
   display: flex;
   flex-direction: column;
 }

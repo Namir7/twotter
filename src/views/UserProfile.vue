@@ -7,7 +7,7 @@
       </div>
 
       <div class="user-profile__follower-count">
-        <strong>Followers: </strong> {{ state.followers }}
+        <strong>Followers: </strong> {{ state.user.followers }}
       </div>
 
       <CreateTwootPanel @add-twoot="addTwoot" />
@@ -44,8 +44,6 @@ export default {
     const userId = computed(() => route.params.userId);
 
     const state = reactive({
-      followers: 0,
-
       user: users[userId.value - 1]  || users[0],
     });
 
