@@ -1,6 +1,6 @@
 # Twotter
 
-![alt text](https://ibb.co/0F6d8Jw)
+![alt text](https://i.ibb.co/D8vSsKq/03-01-2021-040620.png)
 
 small twitter - like Vue study app
 live demo: https://twotter-frontend-app.herokuapp.com/
