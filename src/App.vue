@@ -45,7 +45,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 10px 5%;
-  background-color: deeppink;
+  background-color: $color;
   color: white;
 
   .navigation__logo {

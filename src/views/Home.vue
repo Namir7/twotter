@@ -7,7 +7,7 @@
         :to="{ name: 'UserProfile', params: { userId: user.id } }"
         :key="user.id"
       >
-        {{ user.username }}
+        @{{ user.username }}
       </router-link>
     </div>
   </div>
@@ -36,5 +36,13 @@ export default {
 .users-list {
   display: flex;
   flex-direction: column;
+  a {
+    margin-bottom: 10px;
+
+    transition: transform 400ms ease-in-out;
+    &:hover {
+      transform: translateX(10px);
+    }
+  }
 }
 </style>

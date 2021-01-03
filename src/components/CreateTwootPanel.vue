@@ -98,7 +98,7 @@ export default {
       border-radius: 5px;
       border: none;
       color: white;
-      background-color: deeppink;
+      background-color: $color;
       font-weight: bold;
     }
   }

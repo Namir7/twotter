@@ -27,7 +27,7 @@
 <script>
 import { reactive, computed } from "vue";
 import { useRoute } from "vue-router";
-import { users } from '../assets/users'
+import { users } from "../assets/users";
 import TwootItem from "../components/TwootItem";
 import CreateTwootPanel from "../components/CreateTwootPanel";
 
@@ -44,7 +44,7 @@ export default {
     const userId = computed(() => route.params.userId);
 
     const state = reactive({
-      user: users[userId.value - 1]  || users[0],
+      user: users[userId.value - 1] || users[0],
     });
 
     function addTwoot(twoot) {
@@ -88,7 +88,7 @@ export default {
     }
 
     .user-profile__admin-badge {
-      background-color: rebeccapurple;
+      background-color: #d0bb62;
       color: white;
       border-radius: 5px;
       margin-right: auto;

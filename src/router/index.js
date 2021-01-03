@@ -38,7 +38,7 @@ router.beforeEach(async (to, from, next) => {
     await store.dispatch("User/setUser", users[0]);
   }
 
-  const isAdmin = false;
+  const isAdmin = true;
   const requiresAdmin = to.matched.some((record) => record.meta.requiresAdmin);
 
   if (requiresAdmin && !isAdmin) next({ name: "Home" });
