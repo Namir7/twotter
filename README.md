@@ -1,24 +1,8 @@
-# twotter
+# Twotter
 
-## Project setup
-```
-npm install
-```
+![alt text](https://ibb.co/0F6d8Jw)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+small twitter - like Vue study app
+live demo: https://twotter-frontend-app.herokuapp.com/
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+source: https://github.com/MitchellRomney/TEIS-Tutorial-Vue3-Twotter
